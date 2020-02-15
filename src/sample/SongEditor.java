@@ -25,11 +25,17 @@ public class SongEditor {
 
     }
     
-    public SongEditor() throws FileNotFoundException {
+    public SongEditor() {
 		//loads in data from .txt file into the songview 
     	
     	
-    	Scanner scanner = new Scanner(new File("data.txt"));
+    	Scanner scanner = null;
+		try {
+			scanner = new Scanner(new File("data.txt"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		while(scanner.hasNextLine()){
     	    String line = scanner.nextLine();
     		String[] info = line.split(",");

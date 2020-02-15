@@ -1,15 +1,14 @@
 package sample;
 
-public class Song {
-    protected String name;
-    protected String artist;
+public class Song implements Comparable<Song>{
+    private String name;
+    private String artist;
     private String album;
     private int year;
 
 
     // Our constructor, the last two fields will be null and -1 if not filled in prob have to figure out the -1 part
     public Song(String name, String artist, String album, int year) {
-
         this.name = name;
         this.artist = artist;
         this.album = album != null ? album : "";
@@ -20,11 +19,24 @@ public class Song {
         this.name = name;
         this.artist = artist;
     }
-    
-    public Song() {
-    }
+
     
     public String toString() {
-    	return this.name+", "+this.artist+", "+this.album+", "+this.year;
+    	return this.name+" by "+this.artist;
     }
+    
+    
+    public int compareTo(Song s) {
+    	String name1 = this.name.toLowerCase();
+    	String name2 = s.name.toLowerCase();
+    	String artist1 = this.artist.toLowerCase();
+    	String artist2 = s.artist.toLowerCase();
+    	
+    	if ( name1.equals(name2) ){
+			return artist1.compareTo(artist2);
+    	}
+		
+    	return name1.compareTo(name2); 
+
+	}
 }

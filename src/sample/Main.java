@@ -5,7 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import view.ListController;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 
 public class Main extends Application {
 
@@ -14,8 +17,16 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
+    	FXMLLoader loader = new FXMLLoader();   
+		loader.setLocation(
+				getClass().getResource("sample.fxml"));
+		GridPane root = (GridPane)loader.load();
+
+
+		Controller ctrlr = loader.getController();
+		ctrlr.start(primaryStage);
+
+        primaryStage.setTitle("Song Library");
         primaryStage.setScene(new Scene(root, 1000, 1000));
         primaryStage.show();
     }
