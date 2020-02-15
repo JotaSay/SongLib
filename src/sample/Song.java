@@ -12,8 +12,8 @@ public class Song {
 
         this.name = name;
         this.artist = artist;
-        this.album = album;
-        this.year = year;
+        this.album = album != null ? album : "";
+        this.year = year != -1 ? year:-1;
     }
     
     public Song(String name, String artist) {

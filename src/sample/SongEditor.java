@@ -25,7 +25,7 @@ public class SongEditor {
 
     }
     
-    public void load() throws FileNotFoundException {
+    public SongEditor() throws FileNotFoundException {
 		//loads in data from .txt file into the songview 
     	
     	
@@ -33,13 +33,17 @@ public class SongEditor {
 		while(scanner.hasNextLine()){
     	    String line = scanner.nextLine();
     		String[] info = line.split(",");
-    		if (info.length < 4) {
+    		if (info.length == 2) {
         	    Song s = new Song(info[0], info[1]);
-        	    this.add(s);
-        	    
+        	    this.add(s); 
     		} else {
-        	    Song s = new Song(info[0], info[1], info[2], Integer.parseInt(info[3]));
-        	    this.add(s);
+    			if (info[3] == "") {
+    				Song s = new Song(info[0], info[1], info[2], -1);
+            	    this.add(s);
+    			} else {
+    				Song s = new Song(info[0], info[1], info[2], Integer.parseInt(info[3]));
+            	    this.add(s);
+    			}
     		}
     		  
     	}
