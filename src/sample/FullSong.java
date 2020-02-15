@@ -17,17 +17,19 @@ public class FullSong extends Song {
 		
 	}
 	
-	public edit(Song s, String album, int year) {
+	/* public void edit(Song s, String album, int year) {
 		super(s.name, s.artist);
 		this.album = album != null ? album : "";
         this.year = year != -1 ? year:-1;
 		
 	}
 
-	
-	Song s
-	
-	s.edit(Artist, year)
+	 */
+
+
+	//Song s
+
+	//s.edit(Artist, year)
 	
 
 }

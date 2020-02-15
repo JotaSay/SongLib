@@ -14,6 +14,9 @@ public class Controller {
 
     public void Start(){
         // here we're making our obs list from the arraylist
+        obsList = FXCollections.observableArrayList(//fill this with the stuff from our text function
+        );
+        listview.setItems(obsList);
 
     }
 }
