@@ -38,6 +38,38 @@ public class Controller implements Initializable {
 		FXCollections.sort(listview.getItems());
 
         listview.getSelectionModel().select(0);
+        
+
+        
+        deleteButton.setOnAction(new EventHandler<ActionEvent>() {
+			public void handle(ActionEvent e) {
+				if (listview.getItems().isEmpty()) {
+					return;
+				}
+				
+				Song s = listview.getSelectionModel().getSelectedItem();
+				Alert alert = new Alert(AlertType.CONFIRMATION);
+				      //alert.initModality(Modality.NONE);
+				      alert.initOwner(mainStage);
+				      alert.setTitle("Delete");
+				      alert.setHeaderText(
+				           "Are you sure you want to delete the song "+s.getName()+" by "+s.getArtist()+"?");
+
+//				      String content = "Index: " + 
+//				          listView.getSelectionModel()
+//				                   .getSelectedIndex() + 
+//				          "\nValue: " + 
+//				          listView.getSelectionModel()
+//				                   .getSelectedItem();
+//
+//				          alert.setContentText(content);
+				      Optional<ButtonType> res = alert.showAndWait();
+				      
+		
+
+			}
+		});
+        
 
     }
 }
