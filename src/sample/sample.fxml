@@ -40,7 +40,7 @@
               </items>
             </SplitPane>
             <Button fx:id="okButton" layoutX="711.0" layoutY="15.0" mnemonicParsing="false" text="OK" />
-            <ChoiceBox layoutX="6.0" layoutY="15.0" prefHeight="27.0" prefWidth="116.0" />
+            <ChoiceBox fx:id = "choice" layoutX="6.0" layoutY="15.0" prefHeight="27.0" prefWidth="116.0" />
             <TextField fx:id="songName" layoutX="137.0" layoutY="15.0" prefHeight="27.0" prefWidth="128.0" promptText="Song Name" />
             <TextField fx:id="artistName" layoutX="277.0" layoutY="15.0" prefHeight="27.0" prefWidth="128.0" promptText="Artist Name" />
             <TextField fx:id="album" layoutX="418.0" layoutY="15.0" prefHeight="27.0" prefWidth="128.0" promptText="Album" />
