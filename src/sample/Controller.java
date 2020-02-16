@@ -20,6 +20,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
+        // this is where we will initialize our code
 
     }
 
@@ -27,8 +28,10 @@ public class Controller implements Initializable {
     @FXML
     ListView<Song> listview;
     @FXML Button okButton, deleteButton, cancelButton;
-    @FXML TextField songName;
+    @FXML TextField songName,artistName,album,Year;
     @FXML ChoiceBox<String> choice;
+    @FXML TextArea topCurr,botCurr;
+
 
     private ObservableList<Song> obsList;
 
@@ -73,6 +76,17 @@ public class Controller implements Initializable {
 			}
 		});
         
+
+    }
+
+    public void selectedSong(){
+        // this is where we gather the data of the selected song.
+        Song song;
+        song = listview.getSelectionModel().getSelectedItem();
+        topCurr.setText(song.getName()+song.getName());
+        botCurr.setText(song.getAlbum()+" " +song.getYear());
+
+
 
     }
 }
