@@ -45,7 +45,6 @@ public class Controller implements Initializable {
 		FXCollections.sort(listview.getItems());
 
         listview.getSelectionModel().select(0);
-        
 
         
         deleteButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -78,6 +77,30 @@ public class Controller implements Initializable {
         
 
     }
+    public void editsong(){
+        Song songy = listview.getSelectionModel().getSelectedItem();
+        String s,art,al,ye;
+        s = songName.getText();
+        art = artistName.getText();
+        al = album.getText();
+        ye = Year.getText();
+        if(!s.trim().isEmpty()){
+            songy.setName(s);
+        }
+        if(!art.trim().isEmpty()){
+            songy.setArtist(art);
+        }
+        if(!al.trim().isEmpty()){
+            songy.setAlbum(al);
+        }
+        if(!ye.trim().isEmpty()){
+            if(isInt(ye)){
+                int meep = Integer.parseInt(ye);
+                songy.setYear(meep);
+            }
+        }
+
+    }
 
     public void selectedSong(){
         // this is where we gather the data of the selected song.
@@ -86,7 +109,40 @@ public class Controller implements Initializable {
         topCurr.setText(song.getName()+song.getArtist());
         botCurr.setText(song.getAlbum()+" " +song.getYear());
 
+    }
 
 
+    // this gets all the fields from the top bar and just filters them and then adds them to the classes.
+    public void gather(){
+        String s,art,al,ye;
+        s = songName.getText();
+        art = artistName.getText();
+        al = album.getText();
+        ye = Year.getText();
+        // make sure that the text fields are valid
+        if(songName.getText().trim().isEmpty()||artistName.getText().trim().isEmpty()){
+            //have an error pop up
+        }
+        if(album.getText().trim().isEmpty()&& Year.getText().trim().isEmpty()){
+            // the first two are good now add without album and year
+
+            Song newsong = new Song(s,art,null,null);
+            obsList.add(newsong);
+        }
+        else{
+            if(isInt(ye)){
+                Song newsong = new Song(s,art,al,Integer.parseInt(ye));
+                obsList.add(newsong);
+            }
+        }
+    }
+    //Simply checks to see if our string for year is an int
+    public boolean isInt(String year){
+        try{
+            int age = Integer.parseInt(year);
+            return true;
+        }catch(NumberFormatException ex){
+            return false;
+        }
     }
 }

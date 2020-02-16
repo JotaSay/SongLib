@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.collections.ObservableList;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -57,5 +59,18 @@ public class SongEditor {
     	scanner.close();
 
     }
+    //this is called to update the text file lol
+    public void updateCanciones(ObservableList<Song> yeet){
+    	Scanner scanner = null;
+    	try{
+    		scanner = new Scanner (new File("data.txt"));
+		}catch (FileNotFoundException e){
+    		e.printStackTrace();
+		}
+    	for (Song m: yeet){
+
+		}
+
+	}
 
 }
