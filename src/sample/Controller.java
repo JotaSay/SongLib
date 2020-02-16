@@ -45,12 +45,13 @@ public class Controller implements Initializable {
 		FXCollections.sort(listview.getItems());
 
         listview.getSelectionModel().select(0);
-        
+        selectedSong();
 
         
         deleteButton.setOnAction(new EventHandler<ActionEvent>() {
 			public void handle(ActionEvent e) {
 				if (listview.getItems().isEmpty()) {
+					selectedSong();
 					return;
 				}
 				
@@ -67,10 +68,13 @@ public class Controller implements Initializable {
 				
 				if(result.get() == ButtonType.OK) {
 					obsList.remove(index);
-//					listview.getItems().remove(index);
-					
+					if (index == listview.getItems().size()) {
+				        listview.getSelectionModel().select(index--);
+					} else {
+						listview.getSelectionModel().select(index++);
+					}
 				}
-		      
+				selectedSong();
 				alert.close();
 				
 			}
@@ -81,8 +85,12 @@ public class Controller implements Initializable {
 
     public void selectedSong(){
         // this is where we gather the data of the selected song.
-        Song song;
-        song = listview.getSelectionModel().getSelectedItem();
+    	if (listview.getItems().isEmpty()) {
+            topCurr.setText("");
+            botCurr.setText("");
+
+    	}
+        Song song = listview.getSelectionModel().getSelectedItem();
         topCurr.setText(song.getName()+song.getArtist());
         botCurr.setText(song.getAlbum()+" " +song.getYear());
 
