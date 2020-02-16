@@ -83,7 +83,7 @@ public class Controller implements Initializable {
         // this is where we gather the data of the selected song.
         Song song;
         song = listview.getSelectionModel().getSelectedItem();
-        topCurr.setText(song.getName()+song.getName());
+        topCurr.setText(song.getName()+song.getArtist());
         botCurr.setText(song.getAlbum()+" " +song.getYear());
 
 
