@@ -1,23 +1,19 @@
 package sample;
 
+
 public class Song implements Comparable<Song>{
     private String name;
     private String artist;
     private String album;
-    private Integer year;
+    private String year;
 
 
     // Our constructor, the last two fields will be null and -1 if not filled in prob have to figure out the -1 part
-    public Song(String name, String artist, String album, Integer year) {
+    public Song(String name, String artist, String album, String year) {
         this.name = name;
         this.artist = artist;
-        this.album = album != null ? album :null;
-        this.year = year != null ? year:null;
-    }
-    
-    public Song(String name, String artist) {
-        this.name = name;
-        this.artist = artist;
+        this.album = album;
+        this.year = year;
     }
     
     public String getName() {
@@ -44,11 +40,11 @@ public class Song implements Comparable<Song>{
 		this.album = album;
 	}
 
-	public int getYear() {
+	public String getYear() {
 		return year;
 	}
 
-	public void setYear(int year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
     
@@ -68,6 +64,18 @@ public class Song implements Comparable<Song>{
     	}
 		
     	return name1.compareTo(name2); 
+
+	}
+    
+    public boolean equals(Song s) {
+    	String name1 = this.name.toLowerCase();
+    	String name2 = s.name.toLowerCase();
+    	String artist1 = this.artist.toLowerCase();
+    	String artist2 = s.artist.toLowerCase();
+    	if (s == null || getClass() != s.getClass()) {
+            return false;
+        }
+    	return ( name1.equals(name2) && artist1.equals(artist2) );
 
 	}
 }
