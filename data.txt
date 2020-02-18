@@ -1,3 +1,7 @@
-Hello,MeepArtist,MeepAlbum,2019
-QUE PRETENDES,Bad Bunny,OASIS,2018
-Young Dumb and Broke,Khalid,Some album name,
+ZEBRAS,ZEBRAMAN,ZOOMIN,420
+ZEBROS,ZEBRAWOMAN,ZOOMIN,69
+ZEBROS,ZEBRAMAN,ZOOMIN,420
+Hips Don't Lie,Shakira,,2010
+meep,moop,noop,1928
+QUE PRETENDES?,Bad Bunny,OASIS,1990
+Sky Walker,Miguel,,2020

@@ -15,16 +15,6 @@ public class SongEditor {
     public void add(Song song){
     	this.Songview.add(song);
     }
-
-    //
-    public void edit(){
-
-    }
-
-    //
-    public void delete(){
-
-    }
     
     public SongEditor() {
 		//loads in data from .txt file into the songview 
@@ -41,18 +31,16 @@ public class SongEditor {
     	    String line = scanner.nextLine();
     		String[] info = line.split(",");
     		if (info.length == 2) {
-        	    Song s = new Song(info[0], info[1]);
-        	    this.add(s); 
+        	    Song s = new Song(info[0].trim(), info[1].trim(), "", "");
+        	    this.add(s);
+    		} else if (info.length == 3) {
+    			Song s = new Song(info[0].trim(), info[1].trim(), info[2].trim(), "");
+        	    this.add(s);
     		} else {
-    			if(info[3] == "") {
-    				Song s = new Song(info[0], info[1], info[2], info[3]);
-            	    this.add(s);
-    			} else {
-    				Song s = new Song(info[0], info[1], info[2], info[3]);
-            	    this.add(s);
-    			}
+        	    Song s = new Song(info[0], info[1], info[2], info[3]);
+        	    this.add(s);
+
     		}
-    		  
     	}
     	
     	scanner.close();

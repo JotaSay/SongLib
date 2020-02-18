@@ -4,13 +4,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <GridPane alignment="center" hgap="10" prefHeight="1056.0" prefWidth="1321.0" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <columnConstraints>
@@ -26,9 +26,32 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                      <children>
-                        <TextArea fx:id="topCurr" editable="false" layoutX="33.0" layoutY="29.0" prefHeight="48.0" prefWidth="293.0" />
-                        <TextArea fx:id="botCurr" editable="false" layoutX="33.0" layoutY="90.0" prefHeight="170.0" prefWidth="293.0" />
-                        <Button fx:id="deleteButton" layoutX="113.0" layoutY="298.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="134.0" text="Delete" />
+                        <Button fx:id="deleteButton" layoutX="48.0" layoutY="192.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="114.0" text="Delete Song" />
+                        <TextField fx:id="songDisp" layoutX="71.0" layoutY="35.0" prefHeight="27.0" prefWidth="247.0" promptText="Song Name" />
+                        <TextField fx:id="artistDisp" layoutX="71.0" layoutY="74.0" prefHeight="27.0" prefWidth="247.0" promptText="Artist Name" />
+                        <TextField fx:id="albumDisp" layoutX="71.0" layoutY="113.0" prefHeight="27.0" prefWidth="247.0" promptText="Album" />
+                        <TextField fx:id="yearDisp" layoutX="71.0" layoutY="149.0" prefHeight="27.0" prefWidth="247.0" promptText="Year" />
+                        <Text fx:id="nameLabel" layoutX="14.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+                           <font>
+                              <Font name="SansSerif Regular" size="17.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="artistLabel" layoutX="14.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Artist">
+                           <font>
+                              <Font name="SansSerif Regular" size="17.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="albumLabel" layoutX="12.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Album">
+                           <font>
+                              <Font name="SansSerif Regular" size="17.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="yearLabel" layoutX="12.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year">
+                           <font>
+                              <Font name="SansSerif Regular" size="17.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="editButton" layoutX="177.0" layoutY="192.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="114.0" text="Edit Current" />
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="395.0" prefWidth="263.0">
@@ -38,12 +61,11 @@
                   </AnchorPane>
               </items>
             </SplitPane>
-            <Button fx:id="okButton" layoutX="711.0" layoutY="15.0" mnemonicParsing="false" onAction="#gather" text=" Add Song" />
+            <Button fx:id="okButton" layoutX="711.0" layoutY="15.0" mnemonicParsing="false" text=" Add Song" />
             <TextField fx:id="songName" layoutX="137.0" layoutY="15.0" prefHeight="27.0" prefWidth="128.0" promptText="Song Name" />
             <TextField fx:id="artistName" layoutX="277.0" layoutY="15.0" prefHeight="27.0" prefWidth="128.0" promptText="Artist Name" />
             <TextField fx:id="album" layoutX="418.0" layoutY="15.0" prefHeight="27.0" prefWidth="128.0" promptText="Album" />
             <TextField fx:id="Year" layoutX="559.0" layoutY="15.0" prefHeight="27.0" prefWidth="128.0" promptText="Year" />
-            <Button layoutX="803.0" layoutY="15.0" mnemonicParsing="false" onAction="#editsong" text="Apply Edit on Current" />
             <Label layoutX="6.0" layoutY="53.0" prefHeight="24.0" prefWidth="172.0" text="Current Song">
                <font>
                   <Font size="19.0" />
@@ -54,7 +76,7 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <Button layoutX="954.0" layoutY="15.0" mnemonicParsing="false" onAction="#clearFields" text="Clear Text Field" />
+            <Button layoutX="816.0" layoutY="15.0" mnemonicParsing="false" onAction="#clearFields" text="Clear Text Field" />
          </children>
       </AnchorPane>
    </children>
