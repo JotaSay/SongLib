@@ -4,11 +4,11 @@ public class Song implements Comparable<Song>{
     private String name;
     private String artist;
     private String album;
-    private Integer year;
+    private String year;
 
 
     // Our constructor, the last two fields will be null and -1 if not filled in prob have to figure out the -1 part
-    public Song(String name, String artist, String album, Integer year) {
+    public Song(String name, String artist, String album, String year) {
         this.name = name;
         this.artist = artist;
         this.album = album != null ? album :null;
@@ -44,11 +44,11 @@ public class Song implements Comparable<Song>{
 		this.album = album;
 	}
 
-	public int getYear() {
+	public String getYear() {
 		return year;
 	}
 
-	public void setYear(int year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
     

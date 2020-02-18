@@ -1,3 +1,3 @@
-Young Dumb Broke,Khalid,American Teen,2017
-QUE PRETENDES,Bad Bunny,OASIS,2019
-Young Dumb Broke,Bad Bunny,American Teen,2017
+Hello,MeepArtist,MeepAlbum,2019
+QUE PRETENDES,Bad Bunny,OASIS,2018
+Young Dumb and Broke,Khalid,Some album name,

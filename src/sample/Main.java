@@ -21,13 +21,13 @@ public class Main extends Application {
 				getClass().getResource("sample.fxml"));
 		GridPane root = (GridPane)loader.load();
 
-
 		Controller ctrlr = loader.getController();
 		ctrlr.start(primaryStage);
 
         primaryStage.setTitle("Song Library");
         primaryStage.setScene(new Scene(root, 1000, 1000));
         primaryStage.show();
+
     }
 
 

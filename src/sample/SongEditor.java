@@ -2,8 +2,7 @@ package sample;
 
 import javafx.collections.ObservableList;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -45,11 +44,11 @@ public class SongEditor {
         	    Song s = new Song(info[0], info[1]);
         	    this.add(s); 
     		} else {
-    			if (info[3] == "") {
-    				Song s = new Song(info[0], info[1], info[2], -1);
+    			if(info[3] == "") {
+    				Song s = new Song(info[0], info[1], info[2], info[3]);
             	    this.add(s);
     			} else {
-    				Song s = new Song(info[0], info[1], info[2], Integer.parseInt(info[3]));
+    				Song s = new Song(info[0], info[1], info[2], info[3]);
             	    this.add(s);
     			}
     		}
@@ -60,16 +59,32 @@ public class SongEditor {
 
     }
     //this is called to update the text file lol
-    public void updateCanciones(ObservableList<Song> yeet){
-    	Scanner scanner = null;
+    public static void updateCanciones(ObservableList<Song> yeet)  {
     	try{
-    		scanner = new Scanner (new File("data.txt"));
-		}catch (FileNotFoundException e){
+			BufferedWriter out = new BufferedWriter(new FileWriter("data.txt"));
+			for (Song m: yeet){
+				out.write(m.getName()+",");
+				out.write(m.getArtist()+",");
+				if(m.getAlbum()==null){
+					out.write(",");
+				}else{
+					out.write(m.getAlbum()+",");
+
+				}
+				if(m.getYear()==null){
+					out.write("\n");
+				}else{
+					out.write(m.getYear()+"\n");
+
+				}
+			}
+			out.close();
+
+
+		}catch (IOException e){
     		e.printStackTrace();
 		}
-    	for (Song m: yeet){
 
-		}
 
 	}
 

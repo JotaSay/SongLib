@@ -16,14 +16,15 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 
-public class Controller implements Initializable {
+public class Controller /*implements Initializable*/ {
 
+    /*
     @Override
     public void initialize(URL location, ResourceBundle resources){
         // this is where we will initialize our code
 
     }
-
+    */
 
     @FXML
     ListView<Song> listview;
@@ -38,7 +39,11 @@ public class Controller implements Initializable {
     public void start(Stage mainStage){
         // here we're making our obs list from the arraylist
     	
-    	SongEditor songlib = new SongEditor();
+    	mainStage.setOnCloseRequest(e->{
+    	    e.consume();
+    	    closeProgram(mainStage);
+        });
+        SongEditor songlib = new SongEditor();
         obsList = FXCollections.observableArrayList(songlib.Songview);
         listview.setItems(obsList);
 		FXCollections.sort(listview.getItems());
@@ -96,10 +101,8 @@ public class Controller implements Initializable {
             songy.setAlbum(al);
         }
         if(!ye.trim().isEmpty()){
-            if(isInt(ye)){
-                int meep = Integer.parseInt(ye);
-                songy.setYear(meep);
-            }
+                songy.setYear(ye);
+
         }
 
     }
@@ -111,7 +114,7 @@ public class Controller implements Initializable {
             botCurr.setText("");
     	}
         Song song = listview.getSelectionModel().getSelectedItem();
-        topCurr.setText(song.getName()+song.getArtist());
+        topCurr.setText(song.toString());
         botCurr.setText(song.getAlbum()+" " +song.getYear());
 
     }
@@ -135,13 +138,12 @@ public class Controller implements Initializable {
             obsList.add(newsong);
         }
         else{
-            if(isInt(ye)){
-                Song newsong = new Song(s,art,al,Integer.parseInt(ye));
+                Song newsong = new Song(s,art,al,ye);
                 obsList.add(newsong);
-            }
         }
     }
     //Simply checks to see if our string for year is an int
+    /*
     public boolean isInt(String year){
         try{
             int age = Integer.parseInt(year);
@@ -149,5 +151,24 @@ public class Controller implements Initializable {
         }catch(NumberFormatException ex){
             return false;
         }
+    }
+    */
+    //this is run when the user clicks the exit at the top right. Also gives them a chance to cancel the exit
+    //This is also when the session is then saved and everything is rewritten.
+    public void closeProgram(Stage mainStage){
+        // create a checkbox class that allows us to double check things
+        Boolean ans;
+        if(true) {
+            SongEditor.updateCanciones(obsList);
+            mainStage.close();
+        }
+
+    }
+    //Simply just clears the fields written on
+    public void clearFields(){
+        songName.clear();
+        artistName.clear();
+        album.clear();
+        Year.clear();
     }
 }
